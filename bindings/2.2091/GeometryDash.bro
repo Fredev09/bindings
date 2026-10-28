@@ -16098,16 +16098,16 @@ class MessageThreadsPage : FLAlertLayer, ThreadMessageDelegate, FLAlertLayerProt
 [[link(android), missing(win, ios)]]
 class MoreOptionsLayer : FLAlertLayer, GooglePlayDelegate, GJDropDownLayerDelegate {
     MoreOptionsLayer() = inline;
-    ~MoreOptionsLayer() = imac 0x87c6a0, m1 0x771c80;
+    ~MoreOptionsLayer() = win 0x2c2530, imac 0x87c6a0, m1 0x771c80;
 
     static MoreOptionsLayer* create() = win inline, m1 0x771d74, imac 0x87c820;
 
     virtual bool init() = win inline, imac 0x87ca40, m1 0x771f04;
     virtual void keyBackClicked();
     virtual void googlePlaySignedIn() = imac 0x87fd10, m1 0x7750c0;
-    virtual void dropDownLayerWillClose(GJDropDownLayer* layer) = imac 0x73bc30, m1 0x649674;
+    virtual void dropDownLayerWillClose(GJDropDownLayer* layer) = win 0x2c7e10, imac 0x73bc30, m1 0x649674;
 
-    void addToggle(char const* label, char const* key, char const* description) = m1 0x773314;
+    void addToggle(char const* label, char const* key, char const* description) = win 0x2c6720, m1 0x773314;
     int countForPage(int page);
     void goToPage(int page) = imac 0x87ea40, m1 0x773e68;
     void incrementCountForPage(int page) = win inline;
@@ -16118,7 +16118,7 @@ class MoreOptionsLayer : FLAlertLayer, GooglePlayDelegate, GJDropDownLayerDelega
     const char* objectKey(int page) = win inline, imac 0x87fc60, m1 0x77503c, ios inline;
     cocos2d::CCArray* objectsForPage(int page) = imac 0x87e440, m1 0x773898;
     void offsetToNextPage() = win inline, imac 0x87e400, m1 0x773860, ios inline;
-    void onClose(cocos2d::CCObject* sender) = imac 0x87e960, m1 0x773da4;
+    void onClose(cocos2d::CCObject* sender) = win 0x2c7e80, imac 0x87e960, m1 0x773da4;
     void onFMODDebug(cocos2d::CCObject* sender) = imac 0x87e680, m1 0x773ab4;
     void onGPSignIn(cocos2d::CCObject* sender) = win inline, imac 0x87e7d0, m1 0x773c38, ios inline;
     void onGPSignOut(cocos2d::CCObject* sender) = win inline, imac 0x87e830, m1 0x773c94, ios inline;
@@ -17398,7 +17398,7 @@ class PauseLayer : CCBlockLayer, FLAlertLayerProtocol, StartPosBrowserDelegate, 
     void onShowStartposBrowser(cocos2d::CCObject* sender) = win 0x4d9150, imac 0x3c1cf0, m1 0x346aa0;
     void onSideButtonPressed(cocos2d::CCObject* sender) = win 0x4d9520;
     void onTime(cocos2d::CCObject* sender) = imac 0x3c2330, m1 0x346f84;
-    void onToggleUI(cocos2d::CCObject* sender);
+    void onToggleUI(cocos2d::CCObject* sender) = win 0x4d9bc0;
     void onTryEdit(cocos2d::CCObject* sender) = win 0x4db090, imac 0x3c1020, m1 0x345dec;
     void setupLegacyProgressBars() = win 0x4da1e0;
     void setupPlatformerLabels(bool) = win 0x4da5d0;
@@ -24699,20 +24699,20 @@ class UIOptionsLayer : SetupTriggerPopup {
 
     static UIOptionsLayer* create(bool dual);
 
-    virtual bool ccTouchBegan(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) = imac 0x2a2bb0, m1 0x245780;
-    virtual void ccTouchMoved(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) = imac 0x2a2cf0, m1 0x245944;
-    virtual void ccTouchEnded(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) = imac 0x2a2e00, m1 0x245b30;
-    virtual void ccTouchCancelled(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) = imac 0x2a2f40, m1 0x245c68;
-    virtual void registerWithTouchDispatcher() = imac 0x2a2f80, m1 0x245c84;
-    virtual void onClose(cocos2d::CCObject* sender) = imac 0x2a2390, m1 0x245108;
-    virtual void valueDidChange(int tag, float value) = imac 0x5bdc90, m1 0x245258;
-    virtual float getValue(int tag) = imac 0x2a2910, m1 0x24555c;
+    virtual bool ccTouchBegan(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) = win 0x3ac290, imac 0x2a2bb0, m1 0x245780;
+    virtual void ccTouchMoved(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) = win 0x3ac3a0, imac 0x2a2cf0, m1 0x245944;
+    virtual void ccTouchEnded(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) = win 0x3ac450, imac 0x2a2e00, m1 0x245b30;
+    virtual void ccTouchCancelled(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) = win 0x83ef0, imac 0x2a2f40, m1 0x245c68;
+    virtual void registerWithTouchDispatcher() = win 0x134dc0, imac 0x2a2f80, m1 0x245c84;
+    virtual void onClose(cocos2d::CCObject* sender) = win 0x3abf20, imac 0x2a2390, m1 0x245108;
+    virtual void valueDidChange(int tag, float value) = win 0x3ac130, imac 0x5bdc90, m1 0x245258;
+    virtual float getValue(int tag) = win 0x3ac230, imac 0x2a2910, m1 0x24555c;
 
     GJUINode* getNode(int type) = win inline, imac 0x2a2b90, m1 0x245760, ios inline;
-    bool init(bool dual) = imac 0x2a0280, m1 0x243468;
-    void onReset(cocos2d::CCObject* sender) = m1 0x244ce4;
+    bool init(bool dual) = win 0x3ab900, imac 0x2a0280, m1 0x243468;
+    void onReset(cocos2d::CCObject* sender) = win 0x3ac010, m1 0x244ce4;
     void onSaveLoad(cocos2d::CCObject* sender);
-    void toggleUIGroup(int group) = imac 0x2a2150, m1 0x244ebc;
+    void toggleUIGroup(int group) = win 0x3ab1f0, imac 0x2a2150, m1 0x244ebc;
 
     bool m_dual;
     GJUINode* m_uiNode1;
