@@ -41,21 +41,6 @@ cocos2d::CCArray* LocalLevelManager::getCreatedLists(int folder) {
     return ret;
 }
 
-cocos2d::CCDictionary* LocalLevelManager::getLevelsInNameGroups() {
-    auto dict = cocos2d::CCDictionary::create();
-    for (int i = 0; i < m_localLevels->count(); i++) {
-        auto level = static_cast<GJGameLevel*>(m_localLevels->objectAtIndex(i));
-        auto key = level->m_levelName;
-        auto arr = static_cast<cocos2d::CCArray*>(dict->objectForKey(key));
-        if (!arr) {
-            arr = cocos2d::CCArray::create();
-            dict->setObject(arr, key);
-        }
-        arr->addObject(level);
-    }
-    return dict;
-}
-
 void LocalLevelManager::markLevelsAsUnmodified() {
     for (int i = 0; i < m_localLevels->count(); i++) {
         static_cast<GJGameLevel*>(m_localLevels->objectAtIndex(i))->m_hasBeenModified = false;

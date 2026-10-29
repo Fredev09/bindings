@@ -104,12 +104,6 @@ void MusicDownloadManager::downloadSongFinished(int id) {
     }
 }
 
-void MusicDownloadManager::encodeDataTo(DS_Dictionary* dict) {
-    dict->setDictForKey("MDLM_001", m_songObjects);
-    dict->setDictForKey("MDLM_003", m_MDLM003);
-    dict->setIntegerForKey("MDLM_002", m_songPriority);
-}
-
 void MusicDownloadManager::firstSetup() {
     if (!m_songObjects) {
         auto songObjects = cocos2d::CCDictionary::create();
@@ -184,28 +178,6 @@ cocos2d::CCArray* MusicDownloadManager::getAllMusicTags(OptionsObjectDelegate* d
             auto objB = *static_cast<OptionsObject* const*>(b);
             return objA->m_name.compare(objB->m_name);
         });
-    }
-    return ret;
-}
-
-cocos2d::CCArray* MusicDownloadManager::getAllSFXObjects(bool onlySFX) {
-    auto ret = cocos2d::CCArray::create();
-    cocos2d::CCDictElement* element;
-    cocos2d::CCDictElement* temp;
-    if (m_sfxObjects) {
-        if (onlySFX) {
-            HASH_ITER(hh, m_sfxObjects->m_pElements, element, temp) {
-                auto sfxObject = static_cast<SFXInfoObject*>(element->getObject());
-                if (!sfxObject->m_folder) {
-                    ret->addObject(sfxObject);
-                }
-            }
-        }
-        else {
-            HASH_ITER(hh, m_sfxObjects->m_pElements, element, temp) {
-                ret->addObject(element->getObject());
-            }
-        }
     }
     return ret;
 }
